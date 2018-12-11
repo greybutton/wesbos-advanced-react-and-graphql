@@ -7,7 +7,6 @@ const PleaseSignin = props => (
     query={CURRENT_USER_QUERY}
   >
     {({ loading, data }) => {
-      console.log(loading, data)
       if (loading) return <p>Loading...</p>;
       if (!data.me) {
         return (
