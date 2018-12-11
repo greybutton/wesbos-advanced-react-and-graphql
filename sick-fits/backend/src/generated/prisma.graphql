@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/greybutton-fe5bae/greybutton-sick-fits/dev
-# timestamp: Mon Dec 10 2018 15:18:15 GMT+0800 (Irkutsk Standard Time)
+# timestamp: Tue Dec 11 2018 14:22:35 GMT+0800 (Irkutsk Standard Time)
 
 type AggregateItem {
   count: Int!
@@ -472,7 +472,7 @@ type PageInfo {
   endCursor: String
 }
 
-enum Permisssion {
+enum Permission {
   ADMIN
   USER
   ITEMCREATE
@@ -508,7 +508,7 @@ type User implements Node {
   password: String!
   resetToken: String
   resetTokenExpiry: Float
-  permissions: [Permisssion!]!
+  permissions: [Permission!]!
 }
 
 """A connection to a list of items."""
@@ -536,7 +536,7 @@ input UserCreateOneInput {
 }
 
 input UserCreatepermissionsInput {
-  set: [Permisssion!]
+  set: [Permission!]
 }
 
 """An edge in a connection."""
@@ -574,7 +574,7 @@ type UserPreviousValues {
   password: String!
   resetToken: String
   resetTokenExpiry: Float
-  permissions: [Permisssion!]!
+  permissions: [Permission!]!
 }
 
 type UserSubscriptionPayload {
@@ -651,7 +651,7 @@ input UserUpdateOneRequiredInput {
 }
 
 input UserUpdatepermissionsInput {
-  set: [Permisssion!]
+  set: [Permission!]
 }
 
 input UserUpsertNestedInput {
