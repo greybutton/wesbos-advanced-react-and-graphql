@@ -6,7 +6,7 @@ import User from './User';
 import Signout from './Signout';
 
 import { TOGGLE_CART_MUTATION } from './Cart';
-import { from } from 'zen-observable';
+import CartCount from './CartCount';
 
 const Nav = () => {
   return (
@@ -29,6 +29,7 @@ const Nav = () => {
                     onClick={toggleCart}
                   >
                     My cart
+                    <CartCount count={me.cart.reduce((acc, item) => acc + item.quantity, 0)} />
                   </button>
                 )}
               </Mutation>
