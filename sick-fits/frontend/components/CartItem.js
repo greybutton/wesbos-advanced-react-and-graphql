@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import RemoveFromCart from './RemoveFromCart';
 import formatMoney from '../lib/formatMoney';
 
 const CartItemStyles = styled.li`
@@ -29,6 +30,7 @@ const CartItem = ({ cartItem }) => {
         {' - '}
         <em>{cartItem.quantity} &times; {formatMoney(cartItem.item.price)} each</em>
       </p>
+      <RemoveFromCart id={cartItem.id} />
     </CartItemStyles>
   );
 };
