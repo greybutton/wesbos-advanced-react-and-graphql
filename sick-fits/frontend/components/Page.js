@@ -65,14 +65,6 @@ const Page = (props) => {
       <StyledPage>
         <Meta />
         <Header />
-        <MyButton huge>
-          Click me
-          <span>icon</span>
-        </MyButton>
-        <MyButton>
-          Click me
-          <span>icon</span>
-        </MyButton>
         <Inner>{props.children}</Inner>
       </StyledPage>
     </ThemeProvider>
