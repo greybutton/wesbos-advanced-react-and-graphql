@@ -42,6 +42,20 @@ const Query = {
       throw new Error('You can see this');
     }
     return order;
+  },
+  orders: async (_, args, ctx, info) => {
+    const { userId } = ctx.request;
+    if (!userId) {
+      throw new Error('You must be signed in!');
+    }
+    return ctx.db.query.orders(
+      {
+        where: {
+          user: { id: userId }
+        }
+      },
+      info,
+    );
   }
   // items: async (parent, args, ctx, info) => {
   //   const items = await ctx.db.query.items();
