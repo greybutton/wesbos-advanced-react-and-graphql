@@ -25,6 +25,23 @@ const Query = {
     }
     hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
     return ctx.db.query.users({}, info);
+  },
+  order: async (_, args, ctx, info) => {
+    if (!ctx.request.userId) {
+      throw new Error('You arent logged in!');
+    }
+    const order = await ctx.db.query.order(
+      {
+        where: { id: args.id },
+      },
+      info
+    );
+    const ownsOrder = order.user.id === ctx.request.userId;
+    const hasPermissionToSeeOrder = ctx.request.user.permissions.includes('ADMIN');
+    if (!ownsOrder || !hasPermissionToSeeOrder) {
+      throw new Error('You can see this');
+    }
+    return order;
   }
   // items: async (parent, args, ctx, info) => {
   //   const items = await ctx.db.query.items();
